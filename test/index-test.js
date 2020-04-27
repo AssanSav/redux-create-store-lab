@@ -2,7 +2,7 @@ describe('createStore()', () => {
   let store;
 
   beforeEach(function(){
-    store = createStore(candyReducer);
+    store = createStore(nameReducer);
   })
 
   it('returns an object', function() {

@@ -1,8 +1,8 @@
-function createStore(candyReducer) {
+function createStore(nameReducer) {
   let state;
 
   function dispatch(action) {
-    state = candyReducer(state, action)
+    state = nameReducer(state, action)
     render()
   }
 
@@ -16,10 +16,10 @@ function createStore(candyReducer) {
 }
 
 
-function candyReducer(state = [], action) {
+function nameReducer(state = [], action) {
   switch (action.type) {
-    case 'ADD_CANDY':
-      return [...state, action.candy, generateName()];
+    case 'ADD_NAME':
+      return [...state, action.name, generateName()];
     default:
       return state;
   }
@@ -41,11 +41,11 @@ function render() {
 
 
 document.getElementById("button").addEventListener("click", () => {
-  store.dispatch({ type: "ADD_CANDY" })
+  store.dispatch({ type: "ADD_NAME" })
 })
 
 
-let store = createStore(candyReducer);
+let store = createStore(nameReducer);
 store.dispatch({ type: "@@INIT" })
 
 
